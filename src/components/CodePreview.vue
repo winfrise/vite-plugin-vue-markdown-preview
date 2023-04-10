@@ -5,6 +5,7 @@
     </div>
     <div class="mdp-demo__toolbar">
       <div class="mdp-demo__btn mdp-demo__btn-copy" @click="copyCode">
+        <!-- 复制后的图标 -->
         <svg
           v-if="copied"
           xmlns="http://www.w3.org/2000/svg"
@@ -21,6 +22,7 @@
             d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4"
           />
         </svg>
+        <!-- 复制图标 -->
         <svg
           v-else
           xmlns="http://www.w3.org/2000/svg"
@@ -39,6 +41,7 @@
         </svg>
       </div>
       <div class="mdp-demo__btn mdp-demo__btn-code" @click="toggleCode">
+        <!-- 代码图标 -->
         <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
           <path
             fill="none"
@@ -52,7 +55,7 @@
       </div>
     </div>
     <div
-      class="mdp-demo__code"
+      class="demo__code"
       :style="{ height: height + 'px', visibility: height > 0 ? 'visible' : 'hidden' }"
     >
       <div ref="codeEl">
@@ -105,17 +108,17 @@ const copyCode = () => {
 </script>
 <style>
 :root {
-  --mdp-border-color: var(--vp-c-divider-light-2, rgba(60, 60, 60, 0.12));
-  --mdp-btn-bg-hover: var(--vp-c-gray-light-5, #f2f2f2);
+  --border-color: var(--vp-c-divider-light-2, rgba(60, 60, 60, 0.12));
+  --btn-bg-hover: var(--vp-c-gray-light-5, #f2f2f2);
 }
 .dark {
-  --mdp-border-color: var(--vp-c-divider-dark-2, rgba(84, 84, 84, 0.48));
-  --mdp-btn-bg-hover: var(--vp-c-gray-dark-3, #3a3a3a);
+  --border-color: var(--vp-c-divider-dark-2, rgba(84, 84, 84, 0.48));
+  --btn-bg-hover: var(--vp-c-gray-dark-3, #3a3a3a);
 }
 .mdp-demo {
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid var(--mdp-border-color);
+  border: 1px solid var(--border-color);
 }
 .mdp-demo__preview {
   padding: 1rem;
@@ -125,7 +128,7 @@ const copyCode = () => {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  border-top: 1px solid var(--mdp-border-color);
+  border-top: 1px solid var(--border-color);
 }
 .mdp-demo__btn {
   width: 38px;
@@ -139,7 +142,7 @@ const copyCode = () => {
   user-select: none;
 }
 .mdp-demo__btn:hover {
-  background-color: var(--mdp-btn-bg-hover);
+  background-color: var(--btn-bg-hover);
 }
 
 .mdp-demo__toolbar svg {
@@ -147,9 +150,11 @@ const copyCode = () => {
   height: 1rem;
 }
 
-.mdp-demo.is-expanded .mdp-demo__code {
-  border-top: 1px solid var(--mdp-border-color);
-}
+.mdp-demo.is-expanded {
+  .mdp-demo__code {
+    border-top: 1px solid var(--border-color);
+  }
+} 
 .mdp-demo__code div[class*='language-'] {
   margin: 0;
   border-radius: 0;

@@ -1,14 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import { genComponentName } from './utils'
-export function MarkdownPreview(options) {
-  let vuePlugin = null
-  const config = Object.assign(
-    { component: 'CodePreview', type: 'vite', root: '' },
-    options
-  )
+export function MarkdownPreview() {
   return {
-    name: 'VitePluginMarkdownPreview',
+    name: 'VitePluginVueMarkdownPreview',
     async transform(code, id) {
       if (id.endsWith('.md')) {
         const componentId = path.basename(id, '.md')
@@ -52,7 +47,8 @@ export function MarkdownPreview(options) {
           map: null
         }
       }
-    }
+    },
+
   }
 }
 export default MarkdownPreview
