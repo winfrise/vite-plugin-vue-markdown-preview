@@ -1,6 +1,5 @@
 {
   "name": "@winfrise/vite-plugin-vue-markdown-preview",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
